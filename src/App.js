@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Card from './components/Card'
-// import Navbar from './components/Navbar'
-import VisitedCard from './components/VisitedCard'
+import Navbar from './components/Navbar'
+// import VisitedCard from './components/VisitedCard'
+import MainLoanding from './components/MainLoanding'
+import MyFirstUseStateComponent from './components/MyFirstUseStateComponent'
 const App = () => {
+  const [cart,setCart]=useState([]);
+  const[showCart,setshowCart]=useState(false);
   return (
-    <VisitedCard/>
-    // <Navbar/>
+<>
+<div>
+{/* <MyFirstUseStateComponent/> */}
+    <Navbar
+    cart={cart}
+    showCart={showCart}
+    setShowCart={setshowCart}
+    />
+    {showCart && <div style={{
+      padding:"20px",
+      backgroundColor:"light gray"
+    }}
+    >
+    <h2>Cart Items</h2>
+    {cart.length===0 ? (
+      <h3>Cart Empty</h3>
+    ):(
+      cart.map{(Item)=>{
+        <div key={item.id}
+        style={{
+          border:"1px solid black"
+          padding:"10px"
+          </div>
+   <MainLoanding/>
+   </>
+
+//     <VisitedCard/>
 //     <div>
 //       <div style ={{display:"flex"}}>
 
