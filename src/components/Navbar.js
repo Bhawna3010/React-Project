@@ -1,6 +1,6 @@
 import React from "react";
 
-function Navbar=({cart,showCart,setShowCart})=> {
+function Navbar({cart,showCart,setShowCart}){
   return (
     <div
       style={{
@@ -79,7 +79,9 @@ function Navbar=({cart,showCart,setShowCart})=> {
         >
           <span>Profile</span>
           <span> Wishlist</span>
-          <span> Bag</span>
+          
+          <span onClick={() => setShowCart(!showCart)}>
+          Bag ({cart.length})</span>
         </div>
       </div>
     </div>

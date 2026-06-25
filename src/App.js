@@ -4,35 +4,57 @@ import Navbar from './components/Navbar'
 // import VisitedCard from './components/VisitedCard'
 import MainLoanding from './components/MainLoanding'
 import MyFirstUseStateComponent from './components/MyFirstUseStateComponent'
+// import CheckSyntheticEvent from './components/CheckSyntheticEvent'
+import UseEffect from './components/useEffect'
+import StudentForm from './components/StudentForm'
 const App = () => {
-  const [cart,setCart]=useState([]);
-  const[showCart,setshowCart]=useState(false);
+  
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
   return (
-<>
-<div>
-{/* <MyFirstUseStateComponent/> */}
-    <Navbar
-    cart={cart}
-    showCart={showCart}
-    setShowCart={setshowCart}
-    />
-    {showCart && <div style={{
-      padding:"20px",
-      backgroundColor:"light gray"
-    }}
-    >
-    <h2>Cart Items</h2>
-    {cart.length===0 ? (
-      <h3>Cart Empty</h3>
-    ):(
-      cart.map{(Item)=>{
-        <div key={item.id}
-        style={{
-          border:"1px solid black"
-          padding:"10px"
-          </div>
-   <MainLoanding/>
-   </>
+    <>  
+
+      {/* <CheckSyntheticEvent/> */}
+      <StudentForm/>
+      <UseEffect/>
+      <Navbar
+        cart={cart}
+        showCart={showCart}
+        setShowCart={setShowCart}
+      />
+
+      {showCart && (
+        <div
+          style={{
+            padding: "20px",
+            backgroundColor: "lightgray",
+          }}
+        >
+          <h2>Cart Items</h2>
+
+          {cart.length === 0 ? (
+            <h3>Cart Empty</h3>
+          ) : (
+            cart.map((item) => (
+              <div
+                key={item.id}
+                style={{
+                  border: "1px solid black",
+                  padding: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <h4>{item.title}</h4>
+                <p>₹{item.category}</p>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+
+<MainLoanding cart={cart} setCart={setCart} />
+    </>
 
 //     <VisitedCard/>
 //     <div>
@@ -128,8 +150,9 @@ const App = () => {
 // </div>
 // </div>
 
-  )
-}
+  );
+};
 
 
-export default App
+
+export default App;
